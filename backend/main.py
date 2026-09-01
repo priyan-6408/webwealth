@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
 
+from rag.rag_engine import retrieve_documents
+
 
 app = FastAPI(
     title="WebWealth API",
@@ -47,6 +49,10 @@ def analyze(request: AnalyzeRequest):
 
     symbol = request.symbol.upper()
 
+    rag_result = retrieve_documents(
+        f"{symbol} earnings business growth"
+    )
+
     # Temporary mock response.
     # Later this will be replaced by the real AI agents.
 
@@ -87,8 +93,8 @@ def analyze(request: AnalyzeRequest):
                 "sources": []
             }
         ],
-
-        "evidence": [],
+        
+        "evidence": rag_result.get("sources",[]),
 
         "risks": [
             "Market volatility",
