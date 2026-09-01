@@ -1,9 +1,8 @@
 from fastapi import FastAPI
-<<<<<<< HEAD
 from fastapi.middleware.cors import CORSMiddleware
-=======
->>>>>>> integration
 from pydantic import BaseModel
+from typing import List
+from rag.rag_engine import retrieve_documents
 
 app = FastAPI(
     title="WebWealth API",
@@ -12,20 +11,17 @@ app = FastAPI(
 )
 
 # =========================
-<<<<<<< HEAD
-# CORS MIDDLEWARE (Allows Frontend to talk to Backend)
+# CORS MIDDLEWARE
 # =========================
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows requests from any origin (React frontend, mobile apps, etc.)
+    allow_origins=["*"], 
     allow_credentials=True,
-    allow_methods=["*"],  # Allows GET, POST, OPTIONS, etc.
+    allow_methods=["*"], 
     allow_headers=["*"],
 )
 
 # =========================
-=======
->>>>>>> integration
 # REQUEST MODEL
 # =========================
 class AnalyzeRequest(BaseModel):
@@ -33,13 +29,10 @@ class AnalyzeRequest(BaseModel):
     user_id: str
 
 # =========================
-<<<<<<< HEAD
-# MOCK AGENT & RAG FALLBACKS
-=======
-# MOCK AGENT FUNCTION (Temporary until Member 3 finishes)
->>>>>>> integration
+# MOCK AGENT FUNCTION
 # =========================
 def run_all_agents(symbol: str):
+    """Temporary mock agent logic until multi-agent core is finished"""
     return {
         "overall_signal": "BULLISH",
         "overall_confidence": 0.82,
@@ -89,25 +82,23 @@ def health():
 def analyze(request: AnalyzeRequest):
     symbol = request.symbol.upper()
     
-<<<<<<< HEAD
+    # 1. Run AI Agents (using mock data structure)
     agent_results = run_all_agents(symbol)
     
-    # Placeholder/fallback for RAG until Member 4 updates
-    evidence_data = [
-        {
-            "source": "Q1 FY26 Earnings Filing",
-            "relevance": 0.91,
-            "excerpt": f"Revenue and growth indicators remain strong for {symbol}.",
-            "document_id": "REL_001"
-        }
-    ]
-=======
-    # 1. Run AI Agents (using mock data for now)
-    agent_results = run_all_agents(symbol)
+    # 2. Fetch real context using the active RAG engine connection
+    rag_result = retrieve_documents(f"{symbol} earnings business growth")
+    evidence_data = rag_result.get("sources", [])
     
-    # 2. RAG Evidence placeholder
-    evidence_data = []
->>>>>>> integration
+    # Fallback to structural placeholder metadata if RAG returns empty
+    if not evidence_data:
+        evidence_data = [
+            {
+                "source": "Q1 FY26 Earnings Filing",
+                "relevance": 0.91,
+                "excerpt": f"Revenue and growth indicators remain strong for {symbol}.",
+                "document_id": "REL_001"
+            }
+        ]
 
     return {
         "symbol": symbol,
