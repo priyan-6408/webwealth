@@ -1,0 +1,2452 @@
+/* =========================================================
+   FINVERSE — SPIDER-MAN EDITION
+   BLACK × RED × WHITE
+   READABLE / LARGE UI VERSION
+========================================================= */
+
+:root {
+  --black: #030303;
+  --black-2: #080808;
+  --black-3: #0d0d0d;
+
+  --card: rgba(13, 13, 13, 0.94);
+  --card-2: #111111;
+
+  --red: #e50914;
+  --red-bright: #ff1a26;
+  --red-dark: #7d050b;
+  --red-soft: rgba(229, 9, 20, 0.12);
+  --red-glow: rgba(229, 9, 20, 0.35);
+
+  --white: #f5f5f5;
+  --white-soft: #d5d5d5;
+  --gray: #929292;
+  --gray-dark: #555555;
+
+  --border: #2b1718;
+  --border-red: #64171b;
+
+  --green: #54d68b;
+  --yellow: #f4c95d;
+  --blue: #5ca9ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+}
+
+button,
+select {
+  font-family: inherit;
+}
+
+button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* =========================================================
+   MAIN APP
+========================================================= */
+
+.app {
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+  padding: 32px 48px 25px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 5%,
+      rgba(229, 9, 20, 0.14),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 40%,
+      rgba(229, 9, 20, 0.06),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #020202 0%,
+      #080808 45%,
+      #030303 100%
+    );
+}
+
+/* =========================================================
+   LARGE SPIDER WEB
+========================================================= */
+
+.app::before {
+  content: "";
+
+  position: fixed;
+  top: -80px;
+  right: -80px;
+
+  width: 650px;
+  height: 650px;
+
+  pointer-events: none;
+  z-index: 0;
+
+  opacity: 0.14;
+
+  background:
+    radial-gradient(
+      ellipse 48% 45% at 50% 50%,
+      transparent 0 18%,
+      rgba(255, 255, 255, 0.9) 18.4%,
+      transparent 19%
+    ),
+
+    radial-gradient(
+      ellipse 48% 45% at 50% 50%,
+      transparent 0 31%,
+      rgba(255, 255, 255, 0.8) 31.4%,
+      transparent 32%
+    ),
+
+    radial-gradient(
+      ellipse 48% 45% at 50% 50%,
+      transparent 0 44%,
+      rgba(255, 255, 255, 0.7) 44.4%,
+      transparent 45%
+    ),
+
+    radial-gradient(
+      ellipse 48% 45% at 50% 50%,
+      transparent 0 57%,
+      rgba(255, 255, 255, 0.65) 57.4%,
+      transparent 58%
+    ),
+
+    radial-gradient(
+      ellipse 48% 45% at 50% 50%,
+      transparent 0 70%,
+      rgba(255, 255, 255, 0.55) 70.4%,
+      transparent 71%
+    ),
+
+    conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg 8deg,
+      rgba(255, 255, 255, 0.65) 8.5deg 9deg,
+      transparent 9.5deg 26deg,
+
+      rgba(255, 255, 255, 0.65) 26.5deg 27deg,
+      transparent 27.5deg 44deg,
+
+      rgba(255, 255, 255, 0.65) 44.5deg 45deg,
+      transparent 45.5deg 62deg,
+
+      rgba(255, 255, 255, 0.65) 62.5deg 63deg,
+      transparent 63.5deg 80deg,
+
+      rgba(255, 255, 255, 0.65) 80.5deg 81deg,
+      transparent 81.5deg 98deg,
+
+      rgba(255, 255, 255, 0.65) 98.5deg 99deg,
+      transparent 99.5deg 116deg,
+
+      rgba(255, 255, 255, 0.65) 116.5deg 117deg,
+      transparent 117.5deg 134deg,
+
+      rgba(255, 255, 255, 0.65) 134.5deg 135deg,
+      transparent 135.5deg 152deg,
+
+      rgba(255, 255, 255, 0.65) 152.5deg 153deg,
+      transparent 153.5deg 170deg,
+
+      rgba(255, 255, 255, 0.65) 170.5deg 171deg,
+      transparent 171.5deg 188deg,
+
+      rgba(255, 255, 255, 0.65) 188.5deg 189deg,
+      transparent 189.5deg 206deg,
+
+      rgba(255, 255, 255, 0.65) 206.5deg 207deg,
+      transparent 207.5deg 224deg,
+
+      rgba(255, 255, 255, 0.65) 224.5deg 225deg,
+      transparent 225.5deg 242deg,
+
+      rgba(255, 255, 255, 0.65) 242.5deg 243deg,
+      transparent 243.5deg 260deg,
+
+      rgba(255, 255, 255, 0.65) 260.5deg 261deg,
+      transparent 261.5deg 278deg,
+
+      rgba(255, 255, 255, 0.65) 278.5deg 279deg,
+      transparent 279.5deg 296deg,
+
+      rgba(255, 255, 255, 0.65) 296.5deg 297deg,
+      transparent 297.5deg 314deg,
+
+      rgba(255, 255, 255, 0.65) 314.5deg 315deg,
+      transparent 315.5deg 332deg,
+
+      rgba(255, 255, 255, 0.65) 332.5deg 333deg,
+      transparent 333.5deg 360deg
+    );
+
+  border-radius: 47% 53% 51% 49% / 52% 47% 53% 48%;
+
+  transform:
+    rotate(-8deg)
+    skewX(-3deg)
+    skewY(2deg);
+
+  filter:
+    drop-shadow(0 0 4px rgba(255, 255, 255, 0.12));
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 35%,
+      rgba(0, 0, 0, 0.85) 65%,
+      transparent 100%
+    );
+}
+
+/* =========================================================
+   LEFT WEB
+========================================================= */
+
+.app::after {
+  content: "";
+
+  position: fixed;
+
+  width: 650px;
+  height: 650px;
+
+  left: -360px;
+  bottom: -300px;
+
+  pointer-events: none;
+  z-index: 0;
+
+  opacity: 0.09;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 650'%3E%3Cg fill='none' stroke='white' stroke-width='2' stroke-opacity='.68'%3E%3Cpath d='M325 55 C405 58 475 85 525 140 C575 195 598 260 590 330 C583 405 550 470 495 520 C440 570 370 595 300 588 C225 582 165 550 120 500 C75 450 55 385 63 315 C70 240 100 180 155 130 C205 82 260 55 325 55Z'/%3E%3Cpath d='M325 115 C390 117 445 140 485 182 C525 225 542 275 535 330 C530 390 500 440 455 478 C410 515 355 535 300 528 C242 522 195 498 160 460 C125 420 108 370 114 320 C120 265 145 222 185 185 C225 140 270 115 325 115Z'/%3E%3Cpath d='M325 180 C375 182 415 198 445 230 C475 260 488 298 484 335 C480 380 458 415 425 442 C390 470 350 480 308 475 C265 470 230 450 205 420 C180 390 170 350 175 315 C180 275 200 242 230 215 C255 190 290 180 325 180Z'/%3E%3Cpath d='M325 245 C360 245 388 255 410 278 C432 300 440 325 437 350 C434 378 420 400 398 418 C375 435 350 442 322 438 C295 435 272 423 255 403 C238 383 232 358 235 333 C238 308 250 290 270 272 C285 255 305 245 325 245Z'/%3E%3Cpath d='M325 325 C310 250 318 160 325 55'/%3E%3Cpath d='M325 325 C350 250 380 175 410 75'/%3E%3Cpath d='M325 325 C375 275 425 225 485 155'/%3E%3Cpath d='M325 325 C390 300 470 275 555 220'/%3E%3Cpath d='M325 325 C400 325 490 325 585 325'/%3E%3Cpath d='M325 325 C395 350 475 380 555 425'/%3E%3Cpath d='M325 325 C375 390 425 450 485 510'/%3E%3Cpath d='M325 325 C350 400 370 485 390 570'/%3E%3Cpath d='M325 325 C315 405 305 490 295 590'/%3E%3Cpath d='M325 325 C285 390 245 465 205 535'/%3E%3Cpath d='M325 325 C270 365 205 420 135 475'/%3E%3Cpath d='M325 325 C250 340 170 360 75 390'/%3E%3Cpath d='M325 325 C255 305 180 280 70 245'/%3E%3Cpath d='M325 325 C270 285 210 230 135 165'/%3E%3Cpath d='M325 325 C295 255 265 180 235 85'/%3E%3C/g%3E%3C/svg%3E");
+
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  transform: rotate(-12deg);
+
+  filter:
+    drop-shadow(0 0 12px rgba(255, 255, 255, 0.1));
+}
+
+/* =========================================================
+   CONTENT ABOVE WEBS
+========================================================= */
+
+.topbar,
+.controls,
+.quick-status,
+.market-grid,
+.section-heading,
+.agents-grid,
+.debate-card,
+.scenario-grid,
+.bottom-grid,
+.system-footer,
+footer,
+.xray-card {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--red);
+  border-radius: 13px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(229, 9, 20, 0.18),
+      rgba(229, 9, 20, 0.03)
+    );
+
+  font-size: 28px;
+
+  box-shadow:
+    0 0 20px rgba(229, 9, 20, 0.15),
+    inset 0 0 18px rgba(229, 9, 20, 0.05);
+
+  animation: spiderPulse 3s infinite ease-in-out;
+}
+
+@keyframes spiderPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px rgba(229, 9, 20, 0.12),
+      inset 0 0 15px rgba(229, 9, 20, 0.04);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(229, 9, 20, 0.28),
+      inset 0 0 20px rgba(229, 9, 20, 0.08);
+  }
+}
+
+.brand h1 {
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: 900;
+
+  letter-spacing: 5px;
+  color: #fff;
+
+  text-shadow:
+    0 0 12px rgba(229, 9, 20, 0.3);
+}
+
+.brand p {
+  margin: 5px 0 0;
+
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+
+  letter-spacing: 2px;
+  color: #8e8e8e;
+}
+
+.system-status {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+
+  letter-spacing: 1px;
+  color: #bdbdbd;
+}
+
+.status-dot {
+  display: inline-block;
+
+  width: 8px;
+  height: 8px;
+
+  margin-right: 9px;
+
+  background: var(--red);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 8px var(--red),
+    0 0 16px rgba(229, 9, 20, 0.5);
+
+  animation: statusBlink 1.8s infinite;
+}
+
+@keyframes statusBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls {
+  display: flex;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 22px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-group label,
+.card-label {
+  font-family: "Space Mono", monospace;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1.7px;
+  color: #929292;
+}
+
+select {
+  appearance: none;
+
+  background:
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      #aaa 50%
+    ) calc(100% - 19px) 50% / 6px 6px no-repeat,
+
+    linear-gradient(
+      135deg,
+      #aaa 50%,
+      transparent 50%
+    ) calc(100% - 14px) 50% / 6px 6px no-repeat,
+
+    #0b0b0b;
+
+  color: #eee;
+
+  border: 1px solid #2b2b2b;
+
+  padding: 14px 44px 14px 16px;
+
+  border-radius: 8px;
+
+  min-width: 200px;
+
+  font-size: 14px;
+
+  outline: none;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+select:hover {
+  border-color: var(--red-dark);
+}
+
+select:focus {
+  border-color: var(--red);
+
+  box-shadow:
+    0 0 15px rgba(229, 9, 20, 0.12);
+}
+
+select option {
+  background: #0a0a0a;
+  color: white;
+}
+
+.analyze-button {
+  padding: 14px 28px;
+
+  border: 1px solid var(--red);
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e50914,
+      #a8060e
+    );
+
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 18px rgba(229, 9, 20, 0.18);
+}
+
+.analyze-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 25px rgba(229, 9, 20, 0.38),
+    0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.analyze-button:active {
+  transform: translateY(0);
+}
+
+.analyze-button.analyzing {
+  animation: analyzingPulse 1s infinite;
+}
+
+@keyframes analyzingPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 12px rgba(229, 9, 20, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 0 28px rgba(229, 9, 20, 0.45);
+  }
+}
+
+/* =========================================================
+   QUICK STATUS
+========================================================= */
+
+.quick-status {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+
+  margin-bottom: 22px;
+}
+
+.status-card {
+  padding: 16px 18px;
+
+  background: rgba(10, 10, 10, 0.85);
+
+  border: 1px solid #211314;
+  border-radius: 10px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.status-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background: var(--red);
+
+  opacity: 0.75;
+}
+
+.status-card span {
+  display: block;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  color: #777;
+
+  letter-spacing: 1px;
+}
+
+.status-card strong {
+  display: block;
+
+  margin-top: 7px;
+
+  font-size: 17px;
+
+  letter-spacing: 0.5px;
+}
+
+.green-text {
+  color: var(--green) !important;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 20, 20, 0.95),
+      rgba(7, 7, 7, 0.95)
+    );
+
+  border: 1px solid #282828;
+
+  border-radius: 14px;
+
+  padding: 26px;
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.025),
+    0 12px 30px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  top: -90px;
+  right: -90px;
+
+  border-radius: 50%;
+
+  background: rgba(229, 9, 20, 0.05);
+
+  filter: blur(20px);
+
+  pointer-events: none;
+}
+
+.card:hover {
+  border-color: #451719;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(229, 9, 20, 0.04);
+}
+
+/* =========================================================
+   MARKET
+========================================================= */
+
+.market-grid {
+  display: grid;
+
+  grid-template-columns: 1.25fr 1fr;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+}
+
+.market-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stock-name {
+  margin-top: 22px;
+
+  font-size: 34px;
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+}
+
+.company-name {
+  margin-top: 5px;
+
+  color: #818181;
+
+  font-size: 14px;
+}
+
+.market-trend {
+  padding: 9px 13px;
+
+  border: 1px solid #392022;
+  border-radius: 7px;
+
+  background: rgba(229, 9, 20, 0.05);
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 11px;
+
+  color: #ddd;
+}
+
+.trend-dot {
+  display: inline-block;
+
+  width: 7px;
+  height: 7px;
+
+  margin-right: 7px;
+
+  background: var(--red);
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 8px var(--red);
+}
+
+.price {
+  margin-top: 10px;
+
+  font-size: 38px;
+  font-weight: 800;
+}
+
+.positive {
+  color: var(--green) !important;
+  font-size: 17px;
+}
+
+.negative {
+  color: #ff5964 !important;
+  font-size: 17px;
+}
+
+/* =========================================================
+   CHART
+========================================================= */
+
+.chart {
+  height: 140px;
+
+  margin-top: 24px;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 49%,
+      #222 50%,
+      transparent 51%
+    );
+}
+
+.chart-grid-lines {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent 24%,
+      rgba(255, 255, 255, 0.035) 25%,
+      transparent 26%,
+      transparent 49%,
+      rgba(255, 255, 255, 0.035) 50%,
+      transparent 51%,
+      transparent 74%,
+      rgba(255, 255, 255, 0.035) 75%,
+      transparent 76%
+    );
+
+  pointer-events: none;
+}
+
+.chart-line {
+  position: absolute;
+
+  width: 110%;
+  height: 100%;
+
+  border-bottom: 3px solid var(--red);
+
+  transform:
+    skewY(-8deg)
+    translateY(35px);
+
+  box-shadow:
+    0 8px 25px rgba(229, 9, 20, 0.3);
+}
+
+.chart-glow {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 45%,
+      rgba(229, 9, 20, 0.06),
+      transparent 80%
+    );
+
+  pointer-events: none;
+}
+
+.chart-labels {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #626262;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+}
+
+.market-metrics {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+
+  margin-top: 22px;
+}
+
+.market-metrics div {
+  padding: 14px;
+
+  background: #090909;
+
+  border: 1px solid #1c1c1c;
+
+  border-radius: 8px;
+}
+
+.market-metrics span,
+.synthesis-points span {
+  display: block;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+
+  color: #707070;
+
+  letter-spacing: 0.8px;
+}
+
+.market-metrics strong,
+.synthesis-points strong {
+  display: block;
+
+  margin-top: 7px;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   AI SYNTHESIS
+========================================================= */
+
+.verdict {
+  margin: 20px 0;
+
+  font-size: 32px;
+  font-weight: 900;
+
+  color: #fff;
+
+  text-shadow:
+    0 0 15px rgba(229, 9, 20, 0.2);
+}
+
+.confidence {
+  display: flex;
+
+  justify-content: space-between;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 11px;
+
+  color: #777;
+}
+
+.confidence strong {
+  color: #fff;
+
+  font-size: 16px;
+}
+
+.confidence-bar,
+.agent-bar {
+  height: 7px;
+
+  background: #241011;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  margin-top: 11px;
+}
+
+.confidence-bar div,
+.agent-bar div {
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8d060d,
+      #e50914,
+      #ff313b
+    );
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 0 10px rgba(229, 9, 20, 0.4);
+}
+
+.verdict-text {
+  color: #aaa;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+.synthesis-points {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.synthesis-points div {
+  padding: 13px;
+
+  background: #090909;
+
+  border: 1px solid #202020;
+
+  border-radius: 8px;
+}
+
+.why-button {
+  margin-top: 16px;
+
+  background: transparent;
+
+  border: 1px solid #4b181c;
+
+  color: #ff5964;
+
+  padding: 11px 15px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  font-size: 11px;
+
+  font-family: "Space Mono", monospace;
+
+  letter-spacing: 0.5px;
+}
+
+.why-button:hover {
+  background: rgba(229, 9, 20, 0.07);
+
+  border-color: var(--red);
+
+  box-shadow:
+    0 0 15px rgba(229, 9, 20, 0.1);
+}
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.section-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin: 32px 0 16px;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  font-size: 19px;
+
+  letter-spacing: 1.2px;
+}
+
+.section-heading p {
+  margin: 6px 0 0;
+
+  color: #707070;
+
+  font-size: 12px;
+}
+
+.live-badge {
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  color: #ff5964;
+
+  padding: 9px 12px;
+
+  border: 1px solid #3b1619;
+
+  border-radius: 7px;
+
+  background: rgba(229, 9, 20, 0.035);
+}
+
+.live-badge span {
+  color: var(--red);
+
+  text-shadow: 0 0 8px var(--red);
+}
+
+/* =========================================================
+   AGENTS
+========================================================= */
+
+.agents-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 14px;
+}
+
+.agent-card {
+  min-height: 285px;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.agent-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #7a2027;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(229, 9, 20, 0.1);
+}
+
+.agent-card:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+.agent-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.agent-icon {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+
+  place-items: center;
+
+  background: rgba(229, 9, 20, 0.07);
+
+  border: 1px solid #401619;
+
+  border-radius: 9px;
+
+  font-size: 22px;
+
+  flex-shrink: 0;
+}
+
+.agent-card h3 {
+  margin: 0;
+
+  font-size: 15px;
+
+  line-height: 1.3;
+}
+
+.agent-card span {
+  color: #606060;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+}
+
+.agent-signal {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 22px;
+}
+
+.agent-signal strong {
+  color: #ff5964;
+
+  font-size: 13px;
+}
+
+.agent-signal span {
+  color: #ddd;
+
+  font-size: 13px;
+}
+
+.agent-card p {
+  font-size: 12px;
+
+  line-height: 1.6;
+
+  color: #888;
+}
+
+.agent-reasoning {
+  margin: 17px 0 0;
+
+  padding-left: 18px;
+}
+
+.agent-reasoning li {
+  margin-bottom: 8px;
+
+  color: #999;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.agent-reasoning li::marker {
+  color: var(--red);
+}
+
+.agent-source-count {
+  margin-top: 16px;
+
+  padding-top: 11px;
+
+  border-top: 1px solid #1c1c1c;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+
+  color: #666;
+
+  letter-spacing: 0.5px;
+}
+
+.agent-card::before {
+  content: "↗ VIEW ANALYSIS";
+
+  position: absolute;
+
+  right: 14px;
+  bottom: 13px;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 8px;
+
+  color: #ff5964;
+
+  opacity: 0;
+
+  transition: opacity 0.2s ease;
+}
+
+.agent-card:hover::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   DEBATE
+========================================================= */
+
+.debate-card {
+  margin-top: 25px;
+}
+
+.debate {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.debate-message {
+  padding: 18px;
+
+  border-radius: 9px;
+
+  background: #090909;
+
+  border: 1px solid #1d1d1d;
+
+  border-left: 3px solid var(--red);
+}
+
+.debate-message span {
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  color: #999;
+}
+
+.debate-position {
+  margin-top: 10px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  color: #ff5964;
+
+  letter-spacing: 1px;
+}
+
+.debate-message p {
+  font-size: 13px;
+
+  color: #aaa;
+
+  line-height: 1.6;
+}
+
+.debate-message.bearish {
+  border-left-color: #ff5964;
+}
+
+.debate-message.bearish .debate-position {
+  color: #ff5964;
+}
+
+.debate-message.cautious {
+  border-left-color: var(--yellow);
+}
+
+.debate-message.cautious .debate-position {
+  color: var(--yellow);
+}
+
+.chief-verdict {
+  margin-top: 18px;
+
+  padding: 21px;
+
+  text-align: center;
+
+  border: 1px solid #54181c;
+
+  border-radius: 10px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(229, 9, 20, 0.08),
+      transparent 65%
+    );
+}
+
+.chief-verdict span {
+  display: block;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  color: #777;
+}
+
+.chief-verdict strong {
+  display: block;
+
+  margin-top: 7px;
+
+  font-size: 23px;
+
+  color: #ff5964;
+
+  text-shadow:
+    0 0 15px rgba(229, 9, 20, 0.25);
+}
+
+.chief-verdict small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #666;
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   SCENARIOS
+========================================================= */
+
+.scenario-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.scenario-card {
+  min-height: 165px;
+}
+
+.scenario-icon {
+  font-size: 25px;
+
+  margin-bottom: 13px;
+}
+
+.scenario-name {
+  font-weight: 800;
+
+  font-size: 16px;
+
+  margin-bottom: 15px;
+}
+
+.scenario-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 10px 0;
+
+  border-top: 1px solid #1b1b1b;
+}
+
+.scenario-row span {
+  color: #707070;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+}
+
+.scenario-row strong {
+  font-size: 13px;
+}
+
+/* =========================================================
+   BOTTOM GRID
+========================================================= */
+
+.bottom-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin-top: 25px;
+}
+
+/* =========================================================
+   EVIDENCE
+========================================================= */
+
+.evidence {
+  display: flex;
+
+  gap: 13px;
+
+  align-items: flex-start;
+
+  margin-top: 19px;
+}
+
+.source-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  background: rgba(229, 9, 20, 0.07);
+
+  border: 1px solid #391518;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 8px;
+
+  font-size: 18px;
+}
+
+.evidence strong {
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.evidence p {
+  margin: 5px 0;
+
+  color: #707070;
+
+  font-size: 10px;
+}
+
+.evidence-content small {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #818181;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+.relevance {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 8px;
+
+  padding-top: 7px;
+
+  border-top: 1px solid #191919;
+}
+
+.relevance span {
+  font-family: "Space Mono", monospace;
+
+  color: #606060;
+
+  font-size: 9px;
+}
+
+.relevance strong {
+  color: var(--green);
+
+  font-size: 10px;
+}
+
+.citation-status {
+  margin-top: 20px;
+
+  color: var(--green);
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   FINANCIAL TWIN
+========================================================= */
+
+.profile-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-top: 19px;
+}
+
+.profile-avatar {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(229, 9, 20, 0.08);
+
+  border: 1px solid #4a171a;
+
+  font-size: 20px;
+}
+
+.profile-name {
+  font-size: 19px;
+
+  font-weight: 800;
+}
+
+.profile-header span {
+  font-family: "Space Mono", monospace;
+
+  color: #606060;
+
+  font-size: 9px;
+}
+
+.risk-score {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin: 23px 0;
+}
+
+.risk-score-ring {
+  width: 88px;
+  height: 88px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 50%;
+
+  border: 2px solid #7b171d;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(229, 9, 20, 0.1),
+      transparent 65%
+    );
+
+  box-shadow:
+    0 0 18px rgba(229, 9, 20, 0.1);
+}
+
+.risk-score-ring strong {
+  font-size: 25px;
+}
+
+.risk-score-ring span {
+  color: #666;
+
+  font-size: 10px;
+}
+
+.risk-score > div:last-child > span {
+  font-family: "Space Mono", monospace;
+
+  color: #666;
+
+  font-size: 10px;
+}
+
+.risk-score p {
+  margin: 6px 0 0;
+
+  color: #888;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+.profile-stat {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid #191919;
+
+  font-size: 12px;
+}
+
+.profile-stat span {
+  color: #707070;
+}
+
+.profile-stat strong {
+  color: #ddd;
+}
+
+/* =========================================================
+   FAILURE CONDITIONS
+========================================================= */
+
+.failure-list {
+  padding-left: 0;
+
+  list-style: none;
+
+  margin-top: 20px;
+}
+
+.failure-list li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+
+  color: #999;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.failure-list li > span {
+  width: 21px;
+  height: 21px;
+
+  display: grid;
+
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: rgba(229, 9, 20, 0.08);
+
+  border: 1px solid #481619;
+
+  color: #ff5964;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+}
+
+.risk-note {
+  margin-top: 20px;
+
+  padding: 12px;
+
+  border-left: 2px solid #8b6d2e;
+
+  background: rgba(244, 201, 93, 0.03);
+
+  color: #777;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SYSTEM FOOTER
+========================================================= */
+
+.system-footer {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 28px;
+
+  margin-top: 30px;
+
+  padding: 15px;
+
+  border-top: 1px solid #1d1d1d;
+
+  border-bottom: 1px solid #1d1d1d;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  color: #606060;
+
+  letter-spacing: 0.5px;
+}
+
+.system-footer .status-dot {
+  width: 6px;
+  height: 6px;
+
+  margin-right: 6px;
+}
+
+/* =========================================================
+   MAIN FOOTER
+========================================================= */
+
+footer {
+  text-align: center;
+
+  padding: 28px 0 10px;
+
+  color: #4f4f4f;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  line-height: 1.6;
+}
+
+footer span {
+  color: #606060;
+}
+
+/* =========================================================
+   DECISION X-RAY
+========================================================= */
+
+.xray-card {
+  margin: 25px 0 30px;
+
+  padding: 28px;
+
+  border: 1px solid #57181c;
+
+  border-radius: 15px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(229, 9, 20, 0.08),
+      transparent 35%
+    ),
+    #080808;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+.xray-card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(229, 9, 20, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(229, 9, 20, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 35px 35px;
+
+  pointer-events: none;
+}
+
+.xray-header {
+  position: relative;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 28px;
+}
+
+.xray-label {
+  font-family: "Space Mono", monospace;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  color: #ff5964;
+
+  text-shadow:
+    0 0 12px rgba(229, 9, 20, 0.3);
+}
+
+.xray-header p {
+  margin: 7px 0 0;
+
+  font-size: 12px;
+
+  color: #707070;
+}
+
+.trace-status {
+  padding: 9px 12px;
+
+  border: 1px solid #55181c;
+
+  border-radius: 7px;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  color: #ff5964;
+
+  background: rgba(229, 9, 20, 0.04);
+}
+
+/* =========================================================
+   X-RAY FLOW
+========================================================= */
+
+.xray-flow {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.xray-node {
+  width: min(550px, 90%);
+
+  padding: 19px 22px;
+
+  border: 1px solid #3c1719;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 18, 18, 0.98),
+      rgba(7, 7, 7, 0.98)
+    );
+
+  text-align: center;
+
+  transition: 0.2s ease;
+}
+
+.xray-node:hover {
+  border-color: var(--red);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 25px rgba(229, 9, 20, 0.1);
+}
+
+.node-icon {
+  display: block;
+
+  font-size: 25px;
+
+  margin-bottom: 7px;
+}
+
+.xray-node strong {
+  display: block;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+.xray-node small {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #666;
+
+  font-size: 10px;
+}
+
+.xray-arrow {
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+
+  color: var(--red);
+
+  font-size: 20px;
+
+  text-shadow:
+    0 0 10px rgba(229, 9, 20, 0.5);
+}
+
+.xray-stage-label {
+  margin: 8px 0 11px;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 1.2px;
+
+  color: #606060;
+}
+
+/* =========================================================
+   X-RAY AGENTS
+========================================================= */
+
+.agent-flow {
+  width: min(1050px, 100%);
+
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 10px;
+}
+
+.mini-agent {
+  min-height: 95px;
+
+  padding: 14px 9px;
+
+  border: 1px solid #261517;
+
+  border-radius: 9px;
+
+  background: #090909;
+
+  text-align: center;
+
+  transition: 0.2s ease;
+}
+
+.mini-agent:hover {
+  border-color: #63191e;
+
+  transform: translateY(-2px);
+
+  background: #0c0c0c;
+}
+
+.mini-agent > span {
+  display: block;
+
+  font-size: 21px;
+
+  margin-bottom: 6px;
+}
+
+.mini-agent strong {
+  display: block;
+
+  font-size: 10px;
+}
+
+.mini-agent small {
+  display: block;
+
+  margin-top: 6px;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+
+  color: #ff5964;
+}
+
+/* =========================================================
+   X-RAY SPECIAL NODES
+========================================================= */
+
+.debate-node {
+  border-color: #63441d;
+}
+
+.profile-node {
+  border-color: #263b52;
+}
+
+.evidence-node {
+  border-color: #343434;
+}
+
+.node-metrics,
+.profile-mini-stats,
+.debate-mini-summary,
+.evidence-mini {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 13px;
+}
+
+.node-metrics span,
+.profile-mini-stats span,
+.debate-mini-summary span,
+.evidence-mini span {
+  padding: 7px 9px;
+
+  background: #101010;
+
+  border: 1px solid #252525;
+
+  border-radius: 5px;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+
+  color: #777;
+}
+
+.debate-mini-summary span {
+  color: #d7a34b;
+}
+
+.profile-mini-stats span {
+  color: #72a8dc;
+}
+
+.evidence-mini span {
+  color: #8a8a8a;
+}
+
+/* =========================================================
+   X-RAY FINAL
+========================================================= */
+
+.final-node {
+  width: min(600px, 95%);
+
+  padding: 26px;
+
+  border: 1px solid var(--red);
+
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(229, 9, 20, 0.1),
+      transparent 65%
+    ),
+    #0a0a0a;
+
+  text-align: center;
+
+  box-shadow:
+    0 0 30px rgba(229, 9, 20, 0.08),
+    inset 0 0 25px rgba(229, 9, 20, 0.025);
+}
+
+.final-node > span {
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  color: #777;
+
+  letter-spacing: 1.5px;
+}
+
+.final-node strong {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #ff5964;
+
+  font-size: 24px;
+
+  letter-spacing: 0.5px;
+
+  text-shadow:
+    0 0 15px rgba(229, 9, 20, 0.25);
+}
+
+.final-confidence {
+  margin-top: 8px;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 10px;
+
+  color: #777;
+}
+
+.final-node p {
+  margin: 11px auto 0;
+
+  max-width: 550px;
+
+  color: #888;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   X-RAY FOOTER
+========================================================= */
+
+.xray-footer {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 20px;
+
+  margin-top: 24px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid #211314;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+
+  color: #555;
+}
+
+/* =========================================================
+   DETAIL PAGE SUPPORT
+========================================================= */
+
+.agent-card[role="button"] {
+  outline: none;
+}
+
+.agent-card[role="button"]:focus-visible {
+  border-color: var(--red);
+
+  box-shadow:
+    0 0 0 2px rgba(229, 9, 20, 0.2),
+    0 0 25px rgba(229, 9, 20, 0.12);
+}
+
+.card h2 {
+  line-height: 1.25;
+}
+
+.card p {
+  line-height: 1.65;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3c1114;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+}
+
+/* =========================================================
+   RESPONSIVE — 1200px
+========================================================= */
+
+@media (max-width: 1200px) {
+  .app {
+    padding: 28px 32px 22px;
+  }
+
+  .agents-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .agent-flow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .app::before {
+    width: 700px;
+    height: 700px;
+
+    right: -300px;
+    top: -180px;
+
+    opacity: 0.16;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 1000px
+========================================================= */
+
+@media (max-width: 1000px) {
+  .app {
+    padding: 24px;
+  }
+
+  .market-grid,
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-status {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .agents-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reasoning-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .app::before {
+    width: 600px;
+    height: 600px;
+
+    right: -280px;
+    top: -180px;
+
+    opacity: 0.12;
+  }
+
+  .stock-name {
+    font-size: 31px;
+  }
+
+  .price {
+    font-size: 35px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 700px
+========================================================= */
+
+@media (max-width: 700px) {
+  .app {
+    padding: 20px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+
+    gap: 18px;
+
+    flex-direction: column;
+  }
+
+  .system-status {
+    font-size: 10px;
+  }
+
+  .controls {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  .analyze-button {
+    width: 100%;
+  }
+
+  .quick-status {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .market-metrics,
+  .synthesis-points {
+    grid-template-columns: 1fr;
+  }
+
+  .debate,
+  .scenario-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agents-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agent-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .xray-header {
+    align-items: flex-start;
+
+    gap: 14px;
+
+    flex-direction: column;
+  }
+
+  .xray-node {
+    width: 100%;
+  }
+
+  .xray-footer,
+  .system-footer {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+  }
+
+  .brand h1 {
+    font-size: 23px;
+  }
+
+  .brand p {
+    font-size: 9px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+
+    gap: 12px;
+
+    flex-direction: column;
+  }
+
+  .app::before {
+    width: 500px;
+    height: 500px;
+
+    right: -300px;
+    top: -120px;
+
+    opacity: 0.09;
+  }
+
+  .app::after {
+    opacity: 0.04;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 450px
+========================================================= */
+
+@media (max-width: 450px) {
+  .quick-status {
+    grid-template-columns: 1fr;
+  }
+
+  .stock-name {
+    font-size: 27px;
+  }
+
+  .price {
+    font-size: 30px;
+  }
+
+  .verdict {
+    font-size: 26px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 17px;
+  }
+}
