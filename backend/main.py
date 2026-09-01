@@ -1,5 +1,8 @@
 from fastapi import FastAPI
+<<<<<<< HEAD
 from fastapi.middleware.cors import CORSMiddleware
+=======
+>>>>>>> integration
 from pydantic import BaseModel
 
 app = FastAPI(
@@ -9,6 +12,7 @@ app = FastAPI(
 )
 
 # =========================
+<<<<<<< HEAD
 # CORS MIDDLEWARE (Allows Frontend to talk to Backend)
 # =========================
 app.add_middleware(
@@ -20,6 +24,8 @@ app.add_middleware(
 )
 
 # =========================
+=======
+>>>>>>> integration
 # REQUEST MODEL
 # =========================
 class AnalyzeRequest(BaseModel):
@@ -27,7 +33,11 @@ class AnalyzeRequest(BaseModel):
     user_id: str
 
 # =========================
+<<<<<<< HEAD
 # MOCK AGENT & RAG FALLBACKS
+=======
+# MOCK AGENT FUNCTION (Temporary until Member 3 finishes)
+>>>>>>> integration
 # =========================
 def run_all_agents(symbol: str):
     return {
@@ -79,6 +89,7 @@ def health():
 def analyze(request: AnalyzeRequest):
     symbol = request.symbol.upper()
     
+<<<<<<< HEAD
     agent_results = run_all_agents(symbol)
     
     # Placeholder/fallback for RAG until Member 4 updates
@@ -90,6 +101,13 @@ def analyze(request: AnalyzeRequest):
             "document_id": "REL_001"
         }
     ]
+=======
+    # 1. Run AI Agents (using mock data for now)
+    agent_results = run_all_agents(symbol)
+    
+    # 2. RAG Evidence placeholder
+    evidence_data = []
+>>>>>>> integration
 
     return {
         "symbol": symbol,
